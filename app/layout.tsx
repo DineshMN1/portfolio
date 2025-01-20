@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ViewTransitions } from 'next-view-transitions';
 import { Analytics } from '@vercel/analytics/react';
-import { useState, useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Dinesh MN',
     template: '%s | Dinesh MN',
   },
-  description: 'Learning JavaScript and Python.',
+  description: 'Frontend developer, optimist, community builder.',
 };
 
 export default function RootLayout({
@@ -24,30 +23,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setDarkMode(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    const theme = darkMode ? 'dark' : 'light';
-    document.body.classList.toggle('dark', darkMode);
-    localStorage.setItem('theme', theme);
-  }, [darkMode]);
-
   return (
     <ViewTransitions>
       <html lang="en" className={`${inter.className}`}>
-        <body className="antialiased tracking-tight bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
-          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8">
+        <body className="antialiased tracking-tight">
+          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 bg-white text-gray-900">
             <main className="max-w-[60ch] mx-auto w-full space-y-6">
               {children}
             </main>
-            <Footer darkMode={darkMode} setDarkMode={setDarkMode} />
+            <Footer />
             <Analytics />
           </div>
         </body>
@@ -56,7 +40,7 @@ export default function RootLayout({
   );
 }
 
-function Footer({ darkMode, setDarkMode }: { darkMode: boolean; setDarkMode: (mode: boolean) => void }) {
+function Footer() {
   const links = [
     { name: '@DineshMN1', url: 'https://x.com/DineshMN17' },
     { name: 'Instagram', url: 'https://www.instagram.com/dinesh_mn.05' },
