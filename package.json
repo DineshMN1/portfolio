@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/mdx": "^15.1.5",
+    "@tailwindcss/oxide": "^0.0.0-insiders.8fb9ae8f",
     "@tailwindcss/postcss": "^0.0.0-development.1",
     "@vercel/analytics": "^1.4.1",
     "autoprefixer": "^10.4.20",
