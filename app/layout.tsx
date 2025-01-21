@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Dinesh MN',
     template: '%s | Dinesh MN',
   },
-  description: 'Frontend developer, optimist, community builder.',
+  description: 'Self-taught programmer. Optimist ,Tech enthusiast.',
 };
 
 export default function RootLayout({
