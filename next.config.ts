@@ -4,11 +4,11 @@ import createMDX from '@next/mdx';
 const nextConfig: NextConfig = {
   pageExtensions: ['mdx', 'ts', 'tsx'],
   async redirects() {
-    // Remove any code related to SQL
-    return [];
+    return []; 
   },
   experimental: {
-    mdxRs: true,
+    mdxRs: true, 
+    viewTransition: true, 
   },
 };
 
