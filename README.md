@@ -10,8 +10,8 @@
 This application requires Node.js v18.17+.
 
 ```bash
-git clone https://github.com/DineshMN1/dineshmn.git
+git clone https://github.com/DineshMN1/portfolio.git
 cd dineshmn
 pnpm install
 pnpm dev
-``` 
+```
