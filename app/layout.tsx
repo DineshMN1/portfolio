@@ -3,23 +3,24 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { unstable_ViewTransition as ViewTransition } from 'react';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dineshn.fyi'),
+  metadataBase: new URL('https://dineshmn.fyi'),
   alternates: {
-    canonical: '/',
+    canonical: '/'
   },
   title: {
     default: 'Dinesh MN',
-    template: '%s | Dinesh MN',
+    template: '%s | Dinesh MN'
   },
-  description: 'Self-taught programmer. Optimist, Tech enthusiast.',
+  description: 'Self-taught programmer. Blockchain developer. Optimist.'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -40,10 +41,10 @@ export default function RootLayout({
 
 function Footer() {
   const links = [
-    { name: '@DineshMN1', url: 'https://x.com/DineshMN17' },
+    { name: 'DineshMN1', url: 'https://x.com/DineshMN17' },
     { name: 'Instagram', url: 'https://www.instagram.com/dinesh_mn.05' },
     { name: 'GitHub', url: 'https://github.com/DineshMN1' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dinesh-m-33350130a/' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dinesh-m-33350130a/' }
   ];
 
   return (
@@ -61,6 +62,15 @@ function Footer() {
           </a>
         ))}
       </div>
+      <p className="mx-auto w-fit text-sm mt-2 -mb-2 text-gray-400 dark:text-gray-500 text-center">
+        © {new Date().getFullYear()}  
+        <Link 
+          href="https://dineshmn.fyi" 
+          className="text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-gray-200 transition-colors duration-200 ml-1"
+        >
+          Dinesh MN
+        </Link>
+      </p>
     </footer>
   );
 }

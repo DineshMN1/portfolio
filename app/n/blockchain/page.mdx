@@ -1,0 +1,81 @@
+import { AnimatedName } from '../animated-name.tsx';
+import block from './blockchain.jpg';
+import blocks from './blocks.jpg';
+import genesis from './genesis.jpg';
+import Image from 'next/image';
+
+# Introduction to Blockchain
+<span className="italic text-sm text-gray-500">March 17, 2025</span>  
+
+<AnimatedName/>
+
+export const metadata = {
+  title: 'Introduction to Blockchain',
+  description:
+    'Blockchain',
+  alternates: {
+    canonical: '/n/blockchain'
+  }
+};
+
+Blockchain is the technology behind digital currencies(Cryptocurrency) like **Bitcoin** and **Ethereum**, which together are worth over **$2.73 trillion**.
+
+But **blockchain** is more than just cryptocurrency. It can change how industries work by making transactions more secure and removing the need for middlemen. the future of the internet.
+
+So, what exactly is blockchain, and how does it work? Let’s break it down in simple terms.
+
+## What is Blockchain?
+Blockchain is a decentralized, distributed ledger technology that records transactions across multiple nodes in a secure and tamper-proof manner. It is the foundation of cryptocurrencies like Bitcoin and Ethereum.
+
+
+### **Key Components of Blockchain :**
+
+- **Blocks:** Each block contains a set of transactions, a timestamp, and a reference (hash) to the previous block.
+- **Decentralization:** Instead of a central authority, the blockchain is maintained by a distributed network of nodes (computers).
+- **Immutability:** Once a block is added to the blockchain, altering any data would require changing all subsequent blocks, making it nearly impossible to tamper with.
+- **Consensus Mechanisms:** Transactions are validated through different methods like Proof of Work (PoW) or Proof of Stake (PoS), ensuring the integrity of the network.
+
+## **The Building Blocks**
+Each block has three pieces of information in it:
+
+
+<div className="border border-gray-200 rounded-md p-4 bg-white ">
+  <Image src={block} alt="block"  />
+</div>
+
+- **Some Data** – The actual transaction details stored in the block.
+- **The ‘hash’ of the previous block** – A unique code linking it to the previous block.
+- **A new ‘hash’ for the current block** – A unique code representing the block’s data.
+
+## A chain of blocks makes a — blockchain
+
+<div className="border border-gray-200 rounded-md p-4 bg-white ">
+  <Image src={blocks} alt="block"  />
+</div>
+
+In the case of a blockchain like Bitcoin, this data contains information of the sender, recipient, and the amount of money transferred.
+
+The ‘hash’ is essentially a long string of characters (numbers and alphabets).
+
+Each hash of a block is connected to the block before it.
+
+It is because of this property that all blocks in the blockchain are connected to one another.
+
+
+## Genesis Block
+
+The **first block** in a blockchain is called the **Genesis Block**. Unlike other blocks, it has no previous block to link to, making it the starting point of the entire chain.
+
+<div className="border border-gray-200 rounded-md p-4 bg-white ">
+  <Image src={genesis} alt="genesis"  />
+</div>
+
+The **Genesis Block** is hardcoded into the blockchain and serves as the foundation for all subsequent blocks. 
+
+It establishes the initial state of the network and is often created with a unique message or identifier to mark its significance.. 
+
+
+
+## Conclusion
+
+Blockchain is a revolutionary technology with applications far beyond cryptocurrencies. It enables decentralized, trustless systems with enhanced security and transparency. As adoption grows, it is reshaping various industries.
