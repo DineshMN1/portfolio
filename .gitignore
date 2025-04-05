@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# local blog test files
 test.mdx
+test1.mdx
 
 # dependencies
 /node_modules

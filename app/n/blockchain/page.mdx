@@ -2,80 +2,108 @@ import { AnimatedName } from '../animated-name.tsx';
 import block from './blockchain.jpg';
 import blocks from './blocks.jpg';
 import genesis from './genesis.jpg';
+import Security from './security.jpg';
 import Image from 'next/image';
-
-# Introduction to Blockchain
-<span className="italic text-sm text-gray-500">March 17, 2025</span>  
-
-<AnimatedName/>
 
 export const metadata = {
   title: 'Introduction to Blockchain',
-  description:
-    'Blockchain',
+  description: 'Blockchain',
   alternates: {
     canonical: '/n/blockchain'
   }
 };
 
-Blockchain is the technology behind digital currencies(Cryptocurrency) like **Bitcoin** and **Ethereum**, which together are worth over **$2.73 trillion**.
+# Introduction to Blockchain
+<span className="italic text-sm text-gray-500">March 17, 2025</span>  
 
-But **blockchain** is more than just cryptocurrency. It can change how industries work by making transactions more secure and removing the need for middlemen. the future of the internet.
+<AnimatedName />
 
-So, what exactly is blockchain, and how does it work? Let’s break it down in simple terms.
+**Blockchain** is the technology behind digital currencies like **Bitcoin** and **Ethereum**, which together have a combined market value of **over $2.73 trillion** as of 2025.
 
-## What is Blockchain?
+But **blockchain** goes beyond cryptocurrency — it enables secure, transparent transactions without intermediaries, transforming how industries operate.
+
+<details className="mb-4">
+  <summary className="text-gray-600 dark:text-gray-400 text-[16px] font-semibold cursor-pointer">Table of Contents</summary>
+  <ul className="list-disc pl-6 mt-2 text-gray-500 dark:text-gray-400 text-[15px] space-y-1">
+    <li><a href="#what-is-blockchain" className="hover:text-blue-500">What is Blockchain?</a></li>
+    <li><a href="#key-components-of-blockchain" className="hover:text-blue-500">Key Components of Blockchain</a></li>
+    <li><a href="#the-building-blocks" className="hover:text-blue-500">The Building Blocks</a></li>
+    <li><a href="#a-chain-of-blocks" className="hover:text-blue-500">A Chain of Blocks</a></li>
+    <li><a href="#genesis-block" className="hover:text-blue-500">Genesis Block</a></li>
+    <li><a href="#security" className="hover:text-blue-500">Security</a></li>
+    <li><a href="#conclusion" className="hover:text-blue-500">Conclusion</a></li>
+  </ul>
+</details>
+
+---
+
+<h2 id="what-is-blockchain" className="text-xl font-semibold mt-8 mb-2">What is Blockchain?</h2>
+
 Blockchain is a decentralized, distributed ledger technology that records transactions across multiple nodes in a secure and tamper-proof manner. It is the foundation of cryptocurrencies like Bitcoin and Ethereum.
 
+<h2 id="key-components-of-blockchain" className="text-xl font-semibold mt-8 mb-2">Key Components of Blockchain</h2>
 
-### **Key Components of Blockchain :**
+- **Blocks:** Each block contains a set of transactions, a timestamp, and a reference (hash) to the previous block.  
+- **Decentralization:** Instead of a central authority, the blockchain is maintained by a distributed network of nodes (computers).  
+- **Immutability:** Once a block is added to the blockchain, altering any data would require changing all subsequent blocks, making it nearly impossible to tamper with.  
+- **Consensus Mechanisms:** Transactions are validated through different methods like Proof of Work (PoW) or Proof of Stake (PoS), ensuring the integrity of the network.  
+- **Public & Verifiable:** Each transaction on the blockchain can be **viewed** and **verified** by anyone. This transparency builds trust and removes the need for intermediaries.
 
-- **Blocks:** Each block contains a set of transactions, a timestamp, and a reference (hash) to the previous block.
-- **Decentralization:** Instead of a central authority, the blockchain is maintained by a distributed network of nodes (computers).
-- **Immutability:** Once a block is added to the blockchain, altering any data would require changing all subsequent blocks, making it nearly impossible to tamper with.
-- **Consensus Mechanisms:** Transactions are validated through different methods like Proof of Work (PoW) or Proof of Stake (PoS), ensuring the integrity of the network.
+<h2 id="the-building-blocks" className="text-xl font-semibold mt-8 mb-2">The Building Blocks</h2>
 
-## **The Building Blocks**
 Each block has three pieces of information in it:
 
-
-<div className="border border-gray-200 rounded-md p-4 bg-white ">
-  <Image src={block} alt="block"  />
+<div className="border border-gray-200 rounded-md p-4 bg-white">
+  <Image src={block} alt="block" />
 </div>
 
-- **Some Data** – The actual transaction details stored in the block.
-- **The ‘hash’ of the previous block** – A unique code linking it to the previous block.
+- **Data** – The actual transaction details stored in the block.  
+- **Previous block hash** – A unique code linking it to the previous block.  
 - **A new ‘hash’ for the current block** – A unique code representing the block’s data.
 
-## A chain of blocks makes a — blockchain
+<h2 id="a-chain-of-blocks" className="text-xl font-semibold mt-8 mb-2">A Chain of Blocks</h2>
 
-<div className="border border-gray-200 rounded-md p-4 bg-white ">
-  <Image src={blocks} alt="block"  />
+<div className="border border-gray-200 rounded-md p-4 bg-white">
+  <Image src={blocks} alt="blocks" />
 </div>
 
 In the case of a blockchain like Bitcoin, this data contains information of the sender, recipient, and the amount of money transferred.
 
-The ‘hash’ is essentially a long string of characters (numbers and alphabets).
-
+The ‘hash’ is essentially a long string of characters (numbers and alphabets).  
 Each hash of a block is connected to the block before it.
 
 It is because of this property that all blocks in the blockchain are connected to one another.
 
+<h2 id="genesis-block" className="text-xl font-semibold mt-8 mb-2">Genesis Block</h2>
 
-## Genesis Block
+The **Genesis Block** is the very first block on the blockchain — the point where it all begins.
 
-The **first block** in a blockchain is called the **Genesis Block**. Unlike other blocks, it has no previous block to link to, making it the starting point of the entire chain.
+Since there are no blocks before it, it has **no previous hash**, making it unique by design.
 
-<div className="border border-gray-200 rounded-md p-4 bg-white ">
-  <Image src={genesis} alt="genesis"  />
+<div className="border border-gray-200 rounded-md p-4 bg-white">
+  <Image src={genesis} alt="genesis" />
 </div>
 
-The **Genesis Block** is hardcoded into the blockchain and serves as the foundation for all subsequent blocks. 
+Hardcoded into the network, it marks the **birth of the blockchain** and sets the initial state for all future blocks.
 
-It establishes the initial state of the network and is often created with a unique message or identifier to mark its significance.. 
+<h2 id="security" className="text-xl font-semibold mt-8 mb-2">Security</h2>
 
+The strength of blockchain lies in its structure — if someone tries to tamper with the data in a block, the hash of that block changes.
 
+Since each block is linked to the next using this hash, even a small change breaks the entire chain.
 
-## Conclusion
+Every block's hash is tightly connected to the one that follows it. So, modifying one block affects all the blocks after it, making unauthorized changes easily detectable and practically impossible.
 
-Blockchain is a revolutionary technology with applications far beyond cryptocurrencies. It enables decentralized, trustless systems with enhanced security and transparency. As adoption grows, it is reshaping various industries.
+<div className="border border-gray-200 rounded-md p-4 bg-white">
+  <Image src={Security} alt="security" />
+</div>
+
+<h2 id="conclusion" className="text-xl font-semibold mt-8 mb-2">Conclusion</h2>
+
+In this blog post, we covered the foundational concepts of blockchain technology:
+
+- Key properties that make blockchains secure and reliable  
+- The core components that form a blockchain  
+- How transactions are validated and consensus is achieved  
+
+Together, these insights provide a solid understanding of how blockchain works under the hood — setting the stage for exploring more advanced topics in the future.
