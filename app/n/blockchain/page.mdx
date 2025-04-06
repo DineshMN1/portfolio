@@ -31,6 +31,7 @@ But **blockchain** goes beyond cryptocurrency — it enables secure, transparent
     <li><a href="#a-chain-of-blocks" className="hover:text-blue-500">A Chain of Blocks</a></li>
     <li><a href="#genesis-block" className="hover:text-blue-500">Genesis Block</a></li>
     <li><a href="#security" className="hover:text-blue-500">Security</a></li>
+    <li><a href="#consensus-mechanisms" className="hover:text-blue-500">Consensus Mechanisms</a></li>
     <li><a href="#conclusion" className="hover:text-blue-500">Conclusion</a></li>
   </ul>
 </details>
@@ -98,6 +99,20 @@ Every block's hash is tightly connected to the one that follows it. So, modifyin
   <Image src={Security} alt="security" />
 </div>
 
+<h2 id="consensus-mechanisms" className="text-xl font-semibold mt-8 mb-2">Consensus Mechanisms</h2>
+
+One of the most critical aspects of blockchain is how all the nodes in the network agree on a single version of the truth — this is where **consensus mechanisms** come in.
+
+A consensus mechanism is a protocol that ensures all participants in the network validate and agree on transactions before they’re added to the blockchain.
+
+Some popular types of consensus mechanisms include:
+
+- **Proof of Work (PoW):** Used by Bitcoin, this involves solving complex mathematical puzzles to validate transactions and add new blocks.
+- **Proof of Stake (PoS):** Used by newer blockchains like Ethereum 2.0, this selects validators based on the amount of cryptocurrency they "stake" as collateral.
+- **Delegated Proof of Stake (DPoS):** In this model, token holders vote for a few delegates to validate transactions on their behalf.
+
+These mechanisms maintain **trust**, prevent **double-spending**, and keep the blockchain **secure and decentralized** without needing a central authority.
+
 <h2 id="conclusion" className="text-xl font-semibold mt-8 mb-2">Conclusion</h2>
 
 In this blog post, we explored the foundational concepts of blockchain technology:
@@ -107,5 +122,6 @@ In this blog post, we explored the foundational concepts of blockchain technolog
 - The **security model** that makes blockchain tamper-resistant  
 - The flow of **transactions** and how data is recorded  
 - The role of **hashes** in maintaining the integrity of the chain  
+- The importance of **consensus mechanisms** to validate and agree on transactions across a decentralized network  
 
 Together, these topics build a clear picture of how blockchain works under the hood — providing a strong foundation for diving into more advanced concepts in the future.
