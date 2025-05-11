@@ -1,0 +1,823 @@
+import { AnimatedName } from '../animated-name';
+
+
+export const metadata = {
+  title: 'Become a Rustacean',
+  description: 'Rust tutorial',
+  alternates: {
+    canonical: '/n/rustacean'
+  }
+};
+
+# Rust Programming 
+<span className="italic text-sm text-gray-500">May 12, 2025</span> 
+
+<AnimatedName />
+
+**Rust is a fast and memory-safe systems programming language designed for performance and reliability. 
+It uses ownership and borrowing principles to eliminate memory errors without a garbage collector. 
+Rust is statically typed and compiled, ensuring high efficiency and safety in production.**
+
+<details className="mb-4">
+  <summary className="text-gray-600 dark:text-gray-400 text-[16px] font-semibold cursor-pointer">Table of Contents</summary>
+  <ul className="list-disc pl-6 mt-2 text-gray-500 dark:text-gray-400 text-[15px] space-y-1">
+    <li><a href="#basic-concepts" className="hover:text-blue-500">Basic Concepts</a></li>
+
+    <li>
+      <a href="#memory-management" className="hover:text-blue-500">Memory Management</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#stack-vs-heap" className="hover:text-blue-500">Stack vs Heap</a></li>
+        <li><a href="#ownership" className="hover:text-blue-500">Ownership</a></li>
+        <li><a href="#borrowing-and-references" className="hover:text-blue-500">Borrowing and References</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#data-structures" className="hover:text-blue-500">Data Structures</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#structs" className="hover:text-blue-500">Structs</a></li>
+        <li><a href="#methods-on-structs" className="hover:text-blue-500">Methods on Structs</a></li>
+        <li><a href="#enums" className="hover:text-blue-500">Enums</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#control-flow" className="hover:text-blue-500">Control Flow</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#conditional-statements" className="hover:text-blue-500">Conditional Statements</a></li>
+        <li><a href="#loops" className="hover:text-blue-500">Loops</a></li>
+        <li><a href="#pattern-matching" className="hover:text-blue-500">Pattern Matching</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#error-handling" className="hover:text-blue-500">Error Handling</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#option-enum" className="hover:text-blue-500">Option Enum</a></li>
+        <li><a href="#result-type" className="hover:text-blue-500">Result Type</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#collections" className="hover:text-blue-500">Collections</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#vectors" className="hover:text-blue-500">Vectors</a></li>
+        <li><a href="#hashmaps" className="hover:text-blue-500">HashMaps</a></li>
+        <li><a href="#strings-and-string-slices" className="hover:text-blue-500">Strings and String Slices</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#iteration-and-functional-programming" className="hover:text-blue-500">Iteration and Functional Programming</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#iterators" className="hover:text-blue-500">Iterators</a></li>
+        <li><a href="#iterator-methods" className="hover:text-blue-500">Iterator Methods</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#practical-examples" className="hover:text-blue-500">Practical Examples</a>
+      <ul className="list-disc pl-6 mt-1 space-y-1">
+        <li><a href="#fibonacci-sequence" className="hover:text-blue-500">Fibonacci Sequence</a></li>
+        <li><a href="#string-processing" className="hover:text-blue-500">String Processing</a></li>
+        <li><a href="#collection-processing" className="hover:text-blue-500">Collection Processing</a></li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+
+
+## Check out my github repository for resource(code)
+[rust-github](https://github.com/DineshMN1/rusting.git)
+
+
+<h2 id="basic-concepts" className="text-xl font-semibold mt-8 mb-2">Basic Concepts</h2>
+
+### Variables and Mutability
+```rust
+let greet = String::from("Hello");     // Immutable by default
+let mut s = String::from("Hello");     // Mutable with 'mut' keyword
+s.push_str("SUP");                     // Modifying mutable string
+```
+
+Example from main() function:
+```rust
+fn letn() {
+    let greet = String::from("Hello");  // heap memory of string
+    println!("greet: {}, Length: {}, slice: {}", 
+             greet, greet.len(), &greet[0..2]); 
+    
+    let num = true;
+    if num {
+        println!("The number is true");
+    } else {
+        println!("The number is false");
+    }
+
+    for i in 1..10 {
+        print!("{} ", i);
+    }
+}
+```
+
+### Functions
+```rust
+// Function with parameters and return type
+fn sum(a: i32, b: i32) -> i32 {
+    let c = a + b;
+    return c;
+}
+
+// Function with no return value
+fn takes_ownership(s: String) {
+    println!("{}", s);
+}
+
+// Function that returns the passed parameter
+fn takes_ownership_and_gives_back(s: String) -> String {
+    println!("{}", s);
+    s  // Return value without "return" keyword (last expression)
+}
+```
+
+### Basic Data Types
+- Integers: `i32`, `u32`
+- Booleans: `bool`
+- Strings: `String`, `&str`
+- Arrays and Slices
+- Tuples
+
+### Main Function Example
+```rust
+fn main() {
+    letn();
+    heap_str();
+    let x = 10;
+    let y = 20;
+    println!("Sum is {}", sum(x, y));
+
+    let my_string = String::from("Hello World");
+
+    takes_ownership(my_string);
+    // println!("{}", my_string); // this line won't work as my_string is no longer valid
+    
+    let my_string = String::from("Hello World");
+    let my_string = takes_ownership_and_gives_back(my_string);
+    println!("{}", my_string);
+
+    refr();
+    let mut sting = String::from("Helloborrw"); // mutable reference, borrows the ownership
+    mutborrw(&mut sting);
+    
+    // Struct usage example
+    let user1 = User {
+        name: String::from("Dinesh"),
+        age: 20,
+        active: true,
+    };
+    println!("Name: {}, Age: {}, Active: {}", user1.name, user1.age, user1.active);
+
+    // Method call example
+    let rect1 = Rect {
+        width: 20,
+        height: 30,
+    };
+    println!("Area of rectangle is: {}", rect1.area());
+
+    // Enum usage example
+    let dir = Direction::North;
+    move_dir(dir);
+
+    // Option example
+    let input = String::from("Hello SuperMan");
+    match find_first_a(input) {
+        Some(ind) => println!("First a is at index: {}", ind),
+        None => println!("No a found"),
+    }
+}
+```
+
+<h2 id="memory-management" className="text-xl font-semibold mt-8 mb-2">Memory Management</h2>
+
+<h2 id="stack-vs-heap" className="text-xl font-semibold mt-8 mb-2">Stack vs Heap</h2>
+- **Stack**: Fixed size, fast access, follows LIFO
+  - Primitive types: integers, booleans
+  - Function calls and local variables
+  
+- **Heap**: Dynamic size, slower access
+  - Complex types: String, Vec, etc.
+  - When size is unknown at compile time or might change
+
+
+
+<h2 id="borrowing-and-references" className="text-xl font-semibold mt-8 mb-2">Borrowing and References</h2>
+```rust
+// Immutable reference
+let s = String::from("Hello");
+let s1 = &s;                   // s1 is a reference to s
+println!("{}", s1);
+println!("{}", s);             // s is still valid
+
+// Mutable reference
+let mut sting = String::from("Hello");
+mutborrw(&mut sting);          // Passing mutable reference
+
+fn mutborrw(st: &mut String) {
+    st.push_str("Hello");
+}
+```
+
+Complete example from borrow_refference.rs:
+```rust
+fn main() {
+    // Ownership and borrowing
+    let s1 = String::from("Hello");
+    let s2 = s1;
+    println!("s2: {}", s2);
+    // println!("s1: {}", s1);  // Can't be printed because s1 is borrowed by s2
+
+    // Immutable reference
+    let s3 = String::from("Borrow-ref");
+    let s4 = &s3;
+    println!("s3: {}", s3);
+    println!("s4: {}", s4);   // Can be printed because it just carries the reference
+
+    // Mutable reference
+    let mut s6 = String::from("Mut-refernece");
+    mut_ref(&mut s6);
+    println!("s6: Mut-ref: {}", s6);
+}
+
+fn mut_ref(s5: &mut String) {
+    s5.push_str(" Borrowing");
+    println!("s5: {}", s5);
+}
+```
+
+**Rules of References:**
+1. At any time, you can have either:
+   - One mutable reference
+   - Any number of immutable references
+2. References must always be valid (no dangling references)
+
+Function that demonstrates references:
+```rust
+fn refr() {
+    let s = String::from("Hello");
+    let s1 = &s; // s1 is a reference to s, valid as long as s is valid
+    println!("{}", s1);
+    println!("{}", s);
+}
+```
+
+<h2 id="data-structures" className="text-xl font-semibold mt-8 mb-2">Data Structures</h2>
+
+<h2 id="structs" className="text-xl font-semibold mt-8 mb-2">Structs</h2>
+```rust
+// Defining a struct
+struct User {
+    name: String,
+    age: u32,
+    active: bool,
+}
+
+// Creating an instance
+let user1 = User {
+    name: String::from("Dinesh"),
+    age: 20,
+    active: true,
+};
+
+// Accessing struct fields
+println!("Name: {}, Age: {}", user1.name, user1.age);
+```
+
+<h2 id="methods-on-structs" className="text-xl font-semibold mt-8 mb-2">Methods on Structs</h2>
+```rust
+struct Rect {
+    width: u32,
+    height: u32,
+}
+
+// Implementing methods for a struct
+impl Rect {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+// Using a method
+let rect1 = Rect { width: 20, height: 30 };
+println!("Area: {}", rect1.area());
+```
+
+<h2 id="enums" className="text-xl font-semibold mt-8 mb-2">Enums</h2>
+```rust
+// Defining an enum
+enum Direction {
+    North,
+    South,
+    East,
+    West,
+}
+
+// Using an enum value
+let dir = Direction::North;
+```
+
+<h2 id="control-flow" className="text-xl font-semibold mt-8 mb-2">Control Flow</h2>
+
+<h2 id="conditional-statements" className="text-xl font-semibold mt-8 mb-2">Conditional Statements</h2>
+```rust
+let num = true;
+if num {
+    println!("The number is true");
+} else {
+    println!("The number is false");
+}
+```
+
+<h2 id="loops" className="text-xl font-semibold mt-8 mb-2">Loops</h2>
+```rust
+// For loop with range
+for i in 1..10 {
+    print!("{} ", i);
+}
+
+// Iteration with enumerate
+for (ind, c) in s.chars().enumerate() {
+    // do something with index and character
+}
+```
+
+<h2 id="pattern-matching" className="text-xl font-semibold mt-8 mb-2">Pattern Matching</h2>
+```rust
+// Match with enum
+match direction {
+    Direction::North => println!("Moving North"),
+    Direction::South => println!("Moving South"),
+    Direction::East => println!("Moving East"),
+    Direction::West => println!("Moving West"),
+}
+
+// Match with Option
+match find_first_a(input) {
+    Some(ind) => println!("First a is at index: {}", ind),
+    None => println!("No a found"),
+}
+```
+
+<h2 id="error-handling" className="text-xl font-semibold mt-8 mb-2">Error Handling</h2>
+
+<h2 id="option-enum" className="text-xl font-semibold mt-8 mb-2">Option Enum</h2>
+Used for values that might be absent. The Option enum has two variants: `Some(T)` containing a value, or `None` representing no value.
+
+```rust
+// Returns Some(value) if found, None otherwise
+fn find_first_a(s: String) -> Option<i32> {
+    for (ind, c) in s.chars().enumerate() {
+        if c == 'a' {
+            return Some(ind as i32);
+        }
+    }
+    return None;
+}
+
+// Using Option return value with pattern matching
+match find_first_a(input) {
+    Some(ind) => println!("First a is at index: {}", ind),
+    None => println!("No a found"),
+}
+```
+
+Complete example from option_enum.rs:
+```rust
+fn main() {
+    let s = String::from("Super_Man_D");
+    match find_first_a(s) {
+        Some(ind) => println!("First 'a' found at index {}", ind),
+        None => println!("No 'a' found"),
+    }
+}
+
+fn find_first_a(s: String) -> Option<i32> {
+    for (ind, c) in s.chars().enumerate() {
+        if c == 'a' {
+            return Some(ind as i32);
+        }
+    }
+    return None;
+}
+```
+
+<h2 id="result-type" className="text-xl font-semibold mt-8 mb-2">Result Type</h2>
+Used for operations that might fail. Result is an enum with two variants: `Ok(T)` for success and `Err(E)` for failure.
+
+```rust
+// Example of a function that returns Result
+fn parse_number(s: &str) -> Result<i32, std::num::ParseIntError> {
+    s.parse::<i32>()
+}
+
+// Using Result with pattern matching
+match parse_number("42") {
+    Ok(num) => println!("Successfully parsed: {}", num),
+    Err(e) => println!("Failed to parse: {}", e),
+}
+```
+
+<h2 id="collections" className="text-xl font-semibold mt-8 mb-2">Collections</h2>
+
+<h2 id="vectors" className="text-xl font-semibold mt-8 mb-2">Vectors</h2>
+```rust
+// Creating and using vectors
+let mut vec = Vec::new();    // Empty vector
+vec.push(1);                 // Adding elements
+vec.push(2);
+
+// Vector initialization using macro
+let number = vec![1, 2, 3];
+
+// Filtering a vector
+fn even_vec(vec: Vec<i32>) -> Vec<i32> {
+    let mut new_vec = Vec::new();
+    for val in vec {
+        if val % 2 == 0 {
+            new_vec.push(val);
+        }
+    }
+    return new_vec;
+}
+```
+
+<h2 id="hashmaps" className="text-xl font-semibold mt-8 mb-2">HashMaps</h2>
+HashMaps store key-value pairs with efficient lookups.
+
+```rust
+use std::collections::HashMap;
+
+// Creating and using HashMaps
+let mut users = HashMap::new();
+users.insert(String::from("Dinesh"), 20);
+users.insert(String::from("Sun"), 20);
+
+// Accessing elements
+let first_user = users.get("Sun");
+match first_user {
+    Some(data) => println!("{}", data),
+    None => println!("User not found"),
+}
+
+// Common methods: insert(), get(), remove(), clear()
+```
+
+Complete example from Hashmaps.rs:
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut users = HashMap::new();
+    
+    users.insert(String::from("Dinesh"), 20);
+    users.insert(String::from("Sun"), 20);
+
+    let first_user = users.get("Sun");
+
+    match first_user {
+        Some(data) => println!("{}", data),
+        None => println!("User not found"),
+    }    
+}
+
+// Methods: 1) Insert, 2) Get, 3) Remove, 4) Clear 
+// HashMap is a collection of key-value pairs
+```
+
+Creating a HashMap from a Vector:
+```rust
+use std::collections::HashMap;
+
+fn group_by_values(vec: Vec<(String, i32)>) -> HashMap<String, i32> {
+    let mut hm = HashMap::new();
+    for (key, value) in vec {
+        hm.insert(key, value);
+    }
+    return hm;
+}
+
+fn main() {
+    let input_vec = vec![(String::from("Dinesh"), 20), (String::from("Sun"), 20)];
+    let hm = group_by_values(input_vec);
+    println!("{:?}", hm);
+}
+```
+
+<h2 id="strings-and-string-slices" className="text-xl font-semibold mt-8 mb-2">Strings and String Slices</h2>
+```rust
+// String: mutable, growable, owned
+let mut name = String::from("Dinesh");
+name.push_str(" MN");
+
+// String slice: immutable, fixed size, borrowed
+let string_slice = &name[0..6];
+
+// String literal: immutable, fixed size, borrowed
+let string_literal = "Dinesh MN";
+
+// Finding first word
+fn find_first_word(word: &String) -> &str {
+    let mut index = 0;
+    for (_, i) in word.chars().enumerate() {
+        if i == ' ' {
+            break;
+        }
+        index = index + 1;
+    }
+    return &word[0..index];
+}
+```
+
+Complete example from str.rs:
+```rust
+fn main() {
+    let word = String::from("Hello World");
+
+    // Get first word using function
+    let word2 = find_first_word(&word);
+    println!("Word2: {}", word2);
+
+    // 3 types of commonly used string types:
+    // 1. String: mutable, growable, owned
+    // 2. String slice: immutable, fixed size, borrowed
+    // 3. String literal: immutable, fixed size, borrowed
+    // String literal is also &str but points directly to an address
+
+    let name = String::from("Dinesh MN");
+    let string_slice = &name[0..6];    // string slice
+    let string_literal = "Dinesh MN";  // string literal
+    
+    println!("Name: {}", name);
+    println!("String slice: {}", string_slice);
+    println!("String literal: {}", string_literal);
+}
+
+fn find_first_word(word: &String) -> &str {
+    let mut index = 0;
+    for (_, i) in word.chars().enumerate() {
+        if i == ' ' {
+            break;
+        }
+        index = index + 1;
+    }
+    return &word[0..index];
+}
+```
+
+Example from String_vs_slice.rs:
+```rust
+fn main() {
+    // String is mutable, growable, owned 
+    println!("{}", "String is mutable, growable, owned");
+
+    // String slice is immutable, fixed size, borrowed
+    // Slice is immutable, fixed size, borrowed
+    println!("{}", "Slice is immutable, fixed size, borrowed");
+
+    // String manipulation
+    let mut name = String::from("Dinesh");
+    name.push_str(" MN");
+    println!("Name is {}", name);
+    name.replace_range(7..9, " ");
+    println!("Name is {}", name);
+    println!("Length: {} Capacity: {} Pointer: {:p}", 
+             name.len(), name.capacity(), name.as_ptr());
+    
+    // Finding first word
+    let name1 = String::from("Dinesh MN");
+    let ans = first_word(name1);
+    println!("First word is {}", ans);
+}
+
+fn first_word(str: String) -> String {
+    let mut ans = String::from("");
+    for i in str.chars() {
+        if i == ' ' {
+            break;
+        } 
+        ans.push_str(&i.to_string());  // i isn't a string, so we convert it to string 
+    }
+    return ans;
+}
+```
+
+String length example:
+```rust
+fn main() {
+    let name = String::from("SUPER_MAN_D");
+    let len = get_string_len(name);
+    println!("Length of the string is {}", len);
+}
+
+fn get_string_len(s: String) -> usize {
+    return s.chars().count();
+}
+```
+
+## Advanced Topics
+
+<h2 id="iteration-and-functional-programming" className="text-xl font-semibold mt-8 mb-2">Iteration and Functional Programming</h2>
+
+<h2 id="iterators" className="text-xl font-semibold mt-8 mb-2">Iterators</h2>
+Iterators provide a way to process sequences of elements.
+
+```rust
+let v1 = vec![1, 2, 3];
+
+// Different types of iterators:
+let v1_iter = v1.iter();        // borrowed iterator (&T)
+let mut v1_iter_mut = v1.iter_mut(); // mutable borrow iterator (&mut T)
+let v1_into_iter = v1.into_iter();  // consuming iterator (T)
+```
+
+Complete example from iterator.rs:
+```rust
+fn main() {
+    let v1 = vec![1, 2, 3];
+
+    // Creating an immutable iterator
+    let mut v1_iter = v1.iter();  
+    println!("{:?}", v1_iter); 
+
+    // Manually advancing the iterator
+    let first = v1_iter.next();
+    let second = v1_iter.next();
+    let third = v1_iter.next();
+    let fourth = v1_iter.next();  // gives None
+    println!("First: {:?}, Second: {:?}, Third: {:?}, Fourth: {:?}", 
+             first, second, third, fourth);
+
+    // Using while let with iterators
+    while let Some(val) = v1_iter.next() {
+        println!("Got {}", val);
+    }
+
+    // Using for loop with iterators
+    for i in v1.iter() {
+        println!("Got {}", i);
+    }
+}
+```
+
+<h2 id="iterator-methods" className="text-xl font-semibold mt-8 mb-2">Iterator Methods</h2>
+Iterators have many useful methods for functional-style programming.
+
+```rust
+let v1 = vec![1, 2, 3];
+
+// Consuming iterator: sum()
+let sum: i32 = v1.iter().sum();  // consumes the iterator
+
+// Transforming with map and collecting
+let v2: Vec<i32> = v1.iter().map(|x| x + 1).collect();
+
+// Iterating with into_iter (takes ownership)
+let v1_into_iter = v1.into_iter();
+println!("{:?}", v1_into_iter);
+```
+
+Complete example from iter.rs:
+```rust
+fn main() {
+    let v1 = vec![1, 2, 3];
+
+    // Using into_iter to take ownership
+    let v1_iter = v1.into_iter();  // takes ownership of v1 and moves it into the iterator
+    println!("{:?}", v1_iter);    
+    
+    // Consuming with sum()
+    let sum: i32 = v1_iter.sum();  // sum takes ownership of the iterator and consumes it
+    println!("Sum: {}", sum);  // prints 6
+    // If it takes &self as an argument then it will not consume the iterator
+
+    // Recreate vector since v1 was moved
+    let v1 = vec![1, 2, 3];
+    
+    // Map and collect
+    let iter2 = v1.into_iter().map(|x| x + 1);
+    let v2: Vec<i32> = iter2.collect();
+    println!("{:?}", v2);  // prints the transformed vector [2, 3, 4]
+}
+```
+
+<h2 id="practical-examples" className="text-xl font-semibold mt-8 mb-2">Practical Examples</h2>
+
+<h2 id="fibonacci-sequence" className="text-xl font-semibold mt-8 mb-2">Fibonacci Sequence</h2>
+Complete example from fibonacci.rs:
+```rust
+fn main() {
+    println!("{}", fib(12));
+}
+
+fn fib(num: i32) -> i32 {
+    let mut first = 0;
+    let mut second = 1;
+
+    if num == 0 {
+        return first;
+    } 
+    
+    if num == 1 {
+        return second;
+    } 
+
+    for _ in 0..(num - 1) {
+        let temp = first + second;
+        first = second;
+        second = temp;
+    }
+    return second;
+}
+```
+
+<h2 id="string-processing" className="text-xl font-semibold mt-8 mb-2">String Processing</h2>
+
+#### Vowel Counter Example
+From vowels_or_not.rs:
+```rust
+fn main() {
+    let name = String::from("SUPER_MAN_D");
+    println!("number of vowels present in the name is {}", vowels(&name));
+}
+  
+fn vowels(name: &str) -> i32 {
+    let vowels = ['a','e','i','o','u','A','E','I','O','U'];
+    let mut count = 0;
+    for (_, char) in name.chars().enumerate() {
+        if vowels.contains(&char) {
+            count += 1;
+        }
+    }
+    count
+}
+```
+
+#### Even Number Check
+From is_even.rs:
+```rust
+fn main() {
+    println!("{}", is_even(10));
+}
+
+fn is_even(num: i32) -> bool {
+    if num % 2 == 0 {
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+
+<h2 id="collection-processing" className="text-xl font-semibold mt-8 mb-2">Collection Processing</h2>
+
+#### Vector Filtering
+```rust
+fn even_vec(vec: Vec<i32>) -> Vec<i32> {
+    let mut new_vec = Vec::new();
+    for val in vec {
+        if val % 2 == 0 {
+            new_vec.push(val);
+        }
+    }
+    return new_vec;
+}
+```
+
+---
+
+## Key Concepts from the Files
+
+1. **Variable Binding & Mutability**: Using `let` for immutable variables and `let mut` for mutable ones.
+2. **Ownership**: Rust's unique approach to memory management without garbage collection.
+3. **Borrowing**: Using references (`&` and `&mut`) to avoid ownership transfer.
+4. **Collections**: Working with `Vec<T>`, `HashMap<K, V>`, etc.
+5. **String Types**: Understanding `String` vs string slices (`&str`).
+6. **Structs & Enums**: Custom data types for organizing related data.
+7. **Pattern Matching**: Using `match` for branching logic.
+8. **Option & Result**: Handling absence of values and potential failures.
+9. **Iterators**: Processing sequences of elements.
+10. **Functions**: Writing and using functions with different parameter and return types.
+
+## Advanced Topics to Explore
+
+1. **Traits and Generics**: Enabling polymorphism and code reuse
+2. **Lifetimes**: Managing reference validity
+3. **Multithreading**: Safe concurrent programming
+4. **Macros**: Meta-programming in Rust
+5. **Async/Await and Tokio**: Asynchronous programming
+6. **Futures**: Representing asynchronous operations
+7. **Package Management**: Using Cargo and crates
+8. **Smart Pointers**: Types like Box, Rc, Arc, etc. 
+9. **Error Handling Strategies**: Using ? operator, propagating errors
+10. **FFI (Foreign Function Interface)**: Interoperating with C code
+11. **Unsafe Rust**: Working with unsafe blocks when necessary
