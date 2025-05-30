@@ -44,7 +44,7 @@ function Footer() {
     { name: 'DineshMN1', url: 'https://x.com/DineshMN17' },
     { name: 'Instagram', url: 'https://www.instagram.com/dinesh_mn.05' },
     { name: 'GitHub', url: 'https://github.com/DineshMN1' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dinesh-m-33350130a/' }
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dinesh-mn/' }
   ];
 
   return (
