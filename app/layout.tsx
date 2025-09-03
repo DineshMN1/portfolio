@@ -8,7 +8,7 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dineshmn.fyi'),
+  metadataBase: new URL('https://blog.dineshmn.me'),
   alternates: {
     canonical: '/'
   },
@@ -65,7 +65,7 @@ function Footer() {
       <p className="mx-auto w-fit text-sm mt-2 -mb-2 text-gray-400 dark:text-gray-500 text-center">
         © {new Date().getFullYear()}  
         <Link 
-          href="https://dineshmn.fyi" 
+          href="https://blog.dineshmn.me" 
           className="text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-gray-200 transition-colors duration-200 ml-1"
         >
           Dinesh MN
